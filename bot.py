@@ -4,11 +4,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 def run_cmd(url):
-  driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
+  driver = webdriver.Chrome('./chromedriver')
   options = webdriver.ChromeOptions()
   options.headless = True
   driver.get(url)
-  time.sleep(10) # Let the user actually see something!
+  time.sleep(10)
   header = driver.find_element(By.XPATH, "//*[@data-cy='question-title']")
   new_header = '_'.join(header.text.split('.')[-1].split(' '))
   os.chdir('..')
